@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PentaMate</title>
+  <link rel="icon" href="assets/icon-32.png" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="header">
+    <img src="assets/icon-80.png" alt="Logo" />
+    <span class="header-title">PentaMate Link Check</span>
+  </div>
+
+  <h3>Do you want to visit this link?</h3>
+  <p id="linkTarget"></p>
+
+  <div class="ai-result" id="aiResult">Analyzing with AI...</div>
+
+  <button class="continue-btn" id="continueBtn">Continue</button>
+  <button class="cancel-btn" id="cancelBtn">Cancel</button>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const link = urlParams.get("url");
+
+    document.getElementById("linkTarget").textContent = link;
+
+    document.getElementById("continueBtn").onclick = () => {
+      window.open(link, "_blank");
+      window.close();
+    };
+
+    document.getElementById("cancelBtn").onclick = () => {
+      window.close();
+    };
+
+    fetch("http://localhost:5000/analyze", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url: link })
+    })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("aiResult").textContent = data.analysis || "No AI response.";
+      })
+      .catch(err => {
+        document.getElementById("aiResult").textContent = "AI request failed.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Link Interceptor</title>
+  <link rel="stylesheet" href="taskpane.css" />
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+</head>
+<body>
+  <h2>Links found in this email:</h2>
+  <div id="linkContainer">Loading...</div>
+
+  <!-- Modal Window -->
+  <div id="modalOverlay" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+      <p>Do you want to proceed to this link?</p>
+      <p id="modalLink" class="modal-link"></p>
+      <div class="modal-buttons">
+        <button id="confirmBtn">Continue</button>
+        <button id="cancelBtn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="taskpane.js"></script>
+</body>
+</html>
