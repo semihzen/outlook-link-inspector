@@ -1,5 +1,6 @@
 # Outlook Link Interceptor Extension (with Gemini AI Integration)
-![WhatsApp Görsel 2025-07-31 saat 15 53 50_35e38393](https://github.com/user-attachments/assets/923af700-06c4-44df-8fec-17656e7d1816)
+<img width="1920" height="926" alt="image" src="https://github.com/user-attachments/assets/5788ecf8-38f2-43aa-8d98-09c605399d24" />
+
 
 
 This is a custom Outlook Add-in developed using Node.js. Its main purpose is to intercept and analyze all clickable links inside incoming emails. 
